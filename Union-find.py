@@ -1,22 +1,16 @@
 class UF:
     UF = []
+    length = 0
     def __init__(self, N):
         for i in range(N):
             self.UF.append(i)
+        self.length = N
     def union(self, p, q):
-        if self.UF[p] == self.UF[q]:
-            return('Ya estaban conectados.')
-        min = 0;
-        if self.UF[p] < self.UF[q]:
-            min = p
-            max = q
-        else:
-            min = q
-            max = p
-        for i in self.UF:
-            if self.UF[i] == self.UF[max]:
-                self.UF[i] = self.UF[min]
-        return('Conexión realizada.')
+        pid = self.UF[p]
+        qid = self.UF[q]
+        for i in range(self.length):
+            if self.UF[i] == pid:
+                self.UF[i] = qid
     def connected(self, p, q):
         return self.UF[p] == self.UF[q]
 
