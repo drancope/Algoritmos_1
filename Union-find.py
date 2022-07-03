@@ -18,21 +18,21 @@ class UF:
                 self.UF[i] = self.UF[min]
         return('Conexión realizada.')
     def connected(self, p, q):
-        if self.UF[p] == self.UF[q]:
-            return True
-        else:
-            return False
+        return self.UF[p] == self.UF[q]
 
+A = 0
 import fileinput
 
 with fileinput.input(files= 'tinyUF.txt') as f:
     for line in f:
-        if len(line)<4:
+        if not ' ' in (line):
             X = UF(int(line))
+            A = X
+            print(X.UF)
             continue
         p = int(line.split()[0])
         q = int(line.split()[1])
         if not(X.connected(p, q)):
             X.union(p, q)
 
-print(X.UF)
+print(A.UF)
