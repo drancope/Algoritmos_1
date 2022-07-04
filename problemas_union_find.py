@@ -33,6 +33,14 @@ class social:
             if i == self.root(i):
                 count +=1
         return count
+    def find(self, i):
+        max = i
+        root = self.root(i)
+        for id in range(i, self.length): # no need to ask for elements below i
+            if self.root(id) == root:
+                if id > max:
+                    max = id
+        return max
 
 C = 0
 
@@ -45,13 +53,15 @@ with fileinput.input(files='social_network_friendships.txt') as f:
             C = X
             print(X.nodes)
             continue
-        p = int(line.split()[0])
-        q = int(line.split()[1])
+        data = line.split()
+        p = int(data[0])
+        q = int(data[1])
+        t = int(data[2])
         if not(X.connected(p, q)):
             X.union(p, q)
             if X.components() == 1:
                 print('Total group friendship achieved.')
-                print('Timestamp: ', line.split()[2])
+                print('Timestamp: ', t)
                 break
 
 print(C.nodes)
