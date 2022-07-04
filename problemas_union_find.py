@@ -55,3 +55,4 @@ with fileinput.input(files='social_network_friendships.txt') as f:
                 break
 
 print(C.nodes)
+print(C.size)
