@@ -46,7 +46,7 @@ op, veces = ordenar()
 print('salida2: ',salida,"  veces: ", veces, "   operaciones: ", op)
 salida2 = salida
 
-entrada = [6,0,3,2]
+entrada = [6,0,3,2,7,9]
 salida1 = entrada[ :2 ]
 salida2 = entrada[2: ]
 
