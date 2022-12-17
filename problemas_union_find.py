@@ -1,5 +1,5 @@
 import fileinput
-
+#comentario
 class social:
     nodes = []
     size = []
